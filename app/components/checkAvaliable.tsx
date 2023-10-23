@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { Modal } from "./modal"
+import { config } from "../constants"
 
 export function CheckAvaliable() {
   const [date, setDate] = useState(null)
@@ -21,9 +22,7 @@ export function CheckAvaliable() {
     e.preventDefault()
     try {
       setIsSubmitting(true)
-      const res = await fetch(
-        `http://localhost:3000/api/search?q=${stringDateFormat}`
-      )
+      const res = await fetch(`${config.url}/api/search?q=${stringDateFormat}`)
       setIsSubmitting(false)
       const resFromServer = await res.json()
       setData(resFromServer)
