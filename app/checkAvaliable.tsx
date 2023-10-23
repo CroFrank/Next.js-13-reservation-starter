@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Modal } from "./modal";
+import { Modal } from "./components/modal";
 
 export function CheckAvaliable() {
   const [date, setDate] = useState(null);

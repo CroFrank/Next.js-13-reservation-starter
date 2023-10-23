@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { CheckAvaliable } from "./checkAvaliable";
 
 export default function Home() {
