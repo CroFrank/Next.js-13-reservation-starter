@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { FormEvent, useState } from "react"
 import { ReservationModal } from "./reservationModal"
 import { Input } from "../components/input"
+import { config } from "../constants"
 
 interface FormDataProps {
   name: string
@@ -48,7 +49,7 @@ export default function Reservation() {
     console.log(data)
     try {
       setIsSubmitting(true)
-      const res = await fetch("http://localhost:3000/api/reservation", {
+      const res = await fetch(`${config.url}/api/reservation`, {
         method: "POST",
         body: JSON.stringify(data),
       })
@@ -104,7 +105,7 @@ export default function Reservation() {
             href="/"
             className="w-full bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 ease-in-out"
           >
-            Cancle
+            Cancel
           </Link>
         </form>
       </div>

@@ -1,11 +1,11 @@
-import Link from "next/link";
+import Link from "next/link"
 
 interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-  date: string;
-  data: string;
+  isOpen: boolean
+  onClose: () => void
+  children: React.ReactNode
+  date: string
+  data: string
 }
 
 export const Modal = ({
@@ -15,13 +15,13 @@ export const Modal = ({
   date,
   data,
 }: ModalProps) => {
-  const dateObject = new Date(date!);
-  const day = String(dateObject.getDate()).padStart(2, "0");
-  const month = String(dateObject.getMonth() + 1).padStart(2, "0");
-  const year = dateObject.getFullYear();
-  const stringDateFormat = `${day}/${month}/${year}`;
+  const dateObject = new Date(date!)
+  const day = String(dateObject.getDate()).padStart(2, "0")
+  const month = String(dateObject.getMonth() + 1).padStart(2, "0")
+  const year = dateObject.getFullYear()
+  const stringDateFormat = `${day}/${month}/${year}`
   if (!isOpen) {
-    return null;
+    return null
   }
 
   return (
@@ -46,10 +46,10 @@ export const Modal = ({
             className="mt-4 px-4 py-2 bg-red-800 text-white rounded hover:bg-red-700"
             onClick={onClose}
           >
-            Cancle
+            Cancel
           </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
