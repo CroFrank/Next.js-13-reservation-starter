@@ -1,14 +1,12 @@
-import Link from "next/link";
-
 interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
+  isOpen: boolean
+  onClose: () => void
+  children: React.ReactNode
 }
 
 export const ReservationModal = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen) {
-    return null;
+    return null
   }
 
   return (
@@ -28,5 +26,5 @@ export const ReservationModal = ({ isOpen, onClose, children }: ModalProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

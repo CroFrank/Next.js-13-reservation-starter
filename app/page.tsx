@@ -1,9 +1,9 @@
-import { CheckAvaliable } from "./checkAvaliable";
+import { CheckAvaliable } from "./components/checkAvaliable"
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <CheckAvaliable />
     </main>
-  );
+  )
 }

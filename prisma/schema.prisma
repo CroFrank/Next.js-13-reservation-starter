@@ -17,8 +17,3 @@ model Reservation {
   phone String
   date  String 
 }
-
-// model CheckAvaliable {
-//   id    Int     @id @default(autoincrement())
-//   date  String 
-// }
