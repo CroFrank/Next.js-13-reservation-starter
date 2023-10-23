@@ -4,6 +4,7 @@ CREATE TABLE "Reservation" (
     "email" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
+    "date" TEXT NOT NULL,
 
     CONSTRAINT "Reservation_pkey" PRIMARY KEY ("id")
 );
