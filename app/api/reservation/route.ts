@@ -1,11 +1,17 @@
-import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { NextResponse } from "next/server"
+import { PrismaClient } from "@prisma/client"
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 export async function POST(req: Request) {
   try {
-    const { name, email, phone, date } = await req.json();
+    const { name, email, phone, date } = await req.json()
+    if (date === "") {
+      const data = {
+        info: "No date, please go check avaliable dates and pick one",
+      }
+      return NextResponse.json(data)
+    }
     const reservation = await prisma.reservation.create({
       data: {
         name,
@@ -13,10 +19,11 @@ export async function POST(req: Request) {
         phone,
         date,
       },
-    });
-    return NextResponse.json(reservation);
+    })
+
+    return NextResponse.json(reservation)
   } catch (error) {
-    console.log(error);
-    return NextResponse.error();
+    console.log("error")
+    return NextResponse.error()
   }
 }

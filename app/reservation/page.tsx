@@ -17,6 +17,7 @@ interface FormDataProps {
 interface Data {
   date: string
   email: string
+  info: string
 }
 
 export default function Reservation() {
@@ -36,6 +37,7 @@ export default function Reservation() {
   const [data, setData] = useState<Data>({
     date: "",
     email: "",
+    info: "",
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,13 +47,12 @@ export default function Reservation() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const data = { ...formData }
-    console.log(data)
     try {
       setIsSubmitting(true)
+      console.log(formData)
       const res = await fetch(`${config.url}/api/reservation`, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       })
       setIsSubmitting(false)
       const resFromServer = await res.json()
@@ -84,16 +85,19 @@ export default function Reservation() {
             name="name"
             value={formData.name}
             onChange={handleInputChange}
+            type="text"
           />
           <Input
             name="email"
             value={formData.email}
             onChange={handleInputChange}
+            type="email"
           />
           <Input
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
+            type="number"
           />
           <button
             type="submit"
@@ -114,8 +118,14 @@ export default function Reservation() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
-        <h2>You made your reservation for date {data.date}</h2>
-        <p>Verification key is sent to your email {data.email}</p>
+        {data.info ? (
+          <h2>{data.info}</h2>
+        ) : (
+          <div>
+            <h2>You made your reservation for date {data.date}</h2>
+            <p>Verification key is sent to your email {data.email}</p>
+          </div>
+        )}
       </ReservationModal>
     </div>
   )
