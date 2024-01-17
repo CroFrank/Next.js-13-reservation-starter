@@ -12,7 +12,7 @@ to the server _(/api/reservation/route.ts)_ with basic info (name, email, phone)
 
 After that, date you made reservation for is no longer available.
 
-## Techs
+### Techs
 
 > - Framework - Next.js v13<br />
 > - Language - TypeScript<br />
@@ -21,7 +21,7 @@ After that, date you made reservation for is no longer available.
 > - Hosting - Vercel<br />
 > - Styling - TailwindCSS
 
-## Extra
+### Extra
 
 I was using Docker or Vercel storage for postgres db location you can pick your own
 and don't forget to set .env variable DATABASE_URL=''
@@ -29,3 +29,15 @@ and don't forget to set .env variable DATABASE_URL=''
 This code is my first version so I still didn't add backend validation (I will use zod)
 and project structure may not be best but it can help you out as an idea of how to do
 some reservation logic.
+
+### Contributing
+
+Contributions are welcome! If you find any issues or want to enhance the application, feel free to open an issue or submit a pull request.
+
+### License
+
+This project is licensed under the MIT License. You can do whatever you want with this code.
+
+### Contact
+
+If you have any questions feel free to ask [here](https://www.weblifesupport.com/)
